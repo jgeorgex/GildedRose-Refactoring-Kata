@@ -1,4 +1,5 @@
-require File.join(File.dirname(__FILE__), 'gilded_rose')
+require './gilded_rose.rb'
+require './texttest_fixture.rb'
 
 describe GildedRose do
 
