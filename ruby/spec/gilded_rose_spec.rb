@@ -10,5 +10,4 @@ describe GildedRose do
       expect(items[0].name).to eq "fixme"
     end
   end
-
 end
