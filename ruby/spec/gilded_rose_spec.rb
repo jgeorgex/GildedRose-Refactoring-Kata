@@ -17,10 +17,15 @@ describe GildedRose do
       expect(items = [Item.new("fixme", 0, 51)]).to raise_error("Please enter a quality within the range of 0 - 50")
     end
   end
+
+# Item quality is never negative
+    it "item quality is never negative" do
+      expect(items = [Item.new("fixme", 0, -1)]).to raise_error("Please enter a quality within the range of 0 - 50")
+    end
 end
 
 
-# Item quality is never negative
+
 # All items have a SellIn value which denotes the number of days we have to sell the item
 # All items have a Quality value which denotes how valuable the item is
 # At the end of each day our system lowers both values for every item
