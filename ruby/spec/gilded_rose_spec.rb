@@ -10,14 +10,19 @@ describe GildedRose do
       expect(items[0].name).to eq "fixme"
     end
   end
+
+  describe "item" do
+    it "quality is never over 50" do
+      expect(items = [Item.new("fixme", 0, 51)]).to eq("error")
+    end
+  end
 end
 
-
+# Item quality is never more than 50
 # Item quality is never negative
 # All items have a SellIn value which denotes the number of days we have to sell the item
 # All items have a Quality value which denotes how valuable the item is
 # At the end of each day our system lowers both values for every item
-# Item quality is never more than 50
 # Sulfuras" never has to be sold or decreases in Quality
 # "Aged Brie" increases in quality the older it gets
 # "Conjured" items degrade in Quality twice as fast as normal items
