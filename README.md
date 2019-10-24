@@ -18,7 +18,7 @@ You could write some unit tests yourself, using the requirements to identify sui
 
 Alternatively, use the "Text-Based" tests provided in this repository. (Read more about that in the next section)
 
-Whichever testing approach you choose, the idea of the exercise is to do some deliberate practice, and improve your skills at designing test cases and refactoring. The idea is not to re-write the code from scratch, but rather to practice designing tests, taking small steps, running the tests often, and incrementally improving the design. 
+Whichever testing approach you choose, the idea of the exercise is to do some deliberate practice, and improve your skills at designing test cases and refactoring. The idea is not to re-write the code from scratch, but rather to practice designing tests, taking small steps, running the tests often, and incrementally improving the design.
 
 ## Text-Based Approval Testing
 
@@ -46,4 +46,21 @@ I've also set this kata up on [cyber-dojo](http://cyber-dojo.org) for several la
 
 I analysed this repo according to the clean code standards on [Better Code Hub](https://bettercodehub.com) just to get an independent opinion of how bad the code is. Perhaps unsurprisingly, the compliance score is low!
 
-[![BCH compliance](https://bettercodehub.com/edge/badge/emilybache/GildedRose-Refactoring-Kata?branch=master)](https://bettercodehub.com/) 
+[![BCH compliance](https://bettercodehub.com/edge/badge/emilybache/GildedRose-Refactoring-Kata?branch=master)](https://bettercodehub.com/)
+
+## Planning
+
+Write tests for:
+
+All items have a SellIn value which denotes the number of days we have to sell the item
+All items have a Quality value which denotes how valuable the item is
+At the end of each day our system lowers both values for every item
+When item sell by date has passed, Quality degrades twice as fast
+Item quality is never negative
+"Aged Brie" increases in quality the older it gets
+Item quality is never more than 50
+Sulfuras" never has to be sold or decreases in Quality
+"Backstage passes", like aged brie, increases in Quality as its SellIn value approaches;
+	Quality increases by 2 when there are 10 days or less and by 3 when there are 5 days or less but
+	Quality drops to 0 after the concert
+"Conjured" items degrade in Quality twice as fast as normal items
