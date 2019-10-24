@@ -11,14 +11,15 @@ describe GildedRose do
     end
   end
 
+# Item quality is never more than 50
   describe "item" do
     it "quality is never over 50" do
-      expect(items = [Item.new("fixme", 0, 51)]).to eq("error")
+      expect(items = [Item.new("fixme", 0, 51)]).to eq("Please enter a quality within the range of 0 - 50")
     end
   end
 end
 
-# Item quality is never more than 50
+
 # Item quality is never negative
 # All items have a SellIn value which denotes the number of days we have to sell the item
 # All items have a Quality value which denotes how valuable the item is
