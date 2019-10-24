@@ -11,28 +11,27 @@ describe GildedRose do
     end
   end
 
-# Item quality is never more than 50
-  describe "item" do
+  describe "Item" do
+
+    # Item quality is never more than 50
     it "quality is never over 50" do
       expect(items = [Item.new("fixme", 0, 51)]).to raise_error("Please enter a quality within the range of 0 - 50")
     end
-  end
 
-# Item quality is never negative
-    it "item quality is never negative" do
+    # Item quality is never negative
+    it "quality is never negative" do
       expect(items = [Item.new("fixme", 0, -1)]).to raise_error("Please enter a quality within the range of 0 - 50")
     end
+  end
 end
 
-
-
-# All items have a SellIn value which denotes the number of days we have to sell the item
-# All items have a Quality value which denotes how valuable the item is
-# At the end of each day our system lowers both values for every item
-# Sulfuras" never has to be sold or decreases in Quality
-# "Aged Brie" increases in quality the older it gets
-# "Conjured" items degrade in Quality twice as fast as normal items
-# When item sell by date has passed, Quality degrades twice as fast
-# "Backstage passes", like aged brie, increases in Quality as its SellIn value approaches;
-# 	Quality increases by 2 when there are 10 days or less and by 3 when there are 5 days or less but
-# 	Quality drops to 0 after the concert
+  # All items have a SellIn value which denotes the number of days we have to sell the item
+  # All items have a Quality value which denotes how valuable the item is
+  # At the end of each day our system lowers both values for every item
+  # Sulfuras" never has to be sold or decreases in Quality
+  # "Aged Brie" increases in quality the older it gets
+  # "Conjured" items degrade in Quality twice as fast as normal items
+  # When item sell by date has passed, Quality degrades twice as fast
+  # "Backstage passes", like aged brie, increases in Quality as its SellIn value approaches;
+  # 	Quality increases by 2 when there are 10 days or less and by 3 when there are 5 days or less but
+  # 	Quality drops to 0 after the concert
