@@ -14,7 +14,7 @@ describe GildedRose do
 # Item quality is never more than 50
   describe "item" do
     it "quality is never over 50" do
-      expect(items = [Item.new("fixme", 0, 51)]).to eq("Please enter a quality within the range of 0 - 50")
+      expect(items = [Item.new("fixme", 0, 51)]).to raise_error("Please enter a quality within the range of 0 - 50")
     end
   end
 end
