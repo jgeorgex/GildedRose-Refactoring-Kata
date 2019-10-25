@@ -23,6 +23,12 @@ describe GildedRose do
       expect(items[0].quality).to eq 19
     end
 
+    it "decreases sell_in by 1" do
+      items = [Item.new("Elixir of the Mongoose", 10, 20)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].sell_in).to eq 9
+    end
+
   end
 end
 
