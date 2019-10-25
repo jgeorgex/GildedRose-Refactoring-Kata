@@ -16,6 +16,13 @@ describe GildedRose do
       GildedRose.new(items).update_quality()
       expect(items[0].quality).to eq 21
     end
+
+    it "decreases quality score by 1 if not Aged Brie" do
+      items = [Item.new("Elixir of the Mongoose", 10, 20)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 19
+    end
+
   end
 end
 
