@@ -48,19 +48,19 @@ I analysed this repo according to the clean code standards on [Better Code Hub](
 
 [![BCH compliance](https://bettercodehub.com/edge/badge/emilybache/GildedRose-Refactoring-Kata?branch=master)](https://bettercodehub.com/)
 
-## Planning
+## Approach Planning
 
 Write tests for:
 
+Item quality is never negative
 All items have a SellIn value which denotes the number of days we have to sell the item
 All items have a Quality value which denotes how valuable the item is
 At the end of each day our system lowers both values for every item
-When item sell by date has passed, Quality degrades twice as fast
-Item quality is never negative
-"Aged Brie" increases in quality the older it gets
 Item quality is never more than 50
 Sulfuras" never has to be sold or decreases in Quality
+"Aged Brie" increases in quality the older it gets
+"Conjured" items degrade in Quality twice as fast as normal items
+When item sell by date has passed, Quality degrades twice as fast
 "Backstage passes", like aged brie, increases in Quality as its SellIn value approaches;
 	Quality increases by 2 when there are 10 days or less and by 3 when there are 5 days or less but
 	Quality drops to 0 after the concert
-"Conjured" items degrade in Quality twice as fast as normal items
