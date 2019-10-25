@@ -11,6 +11,7 @@ describe GildedRose do
       expect(items[0].name).to eq "fixme"
     end
 
+    # "Aged Brie" increases in quality the older it gets
     it "improves Aged Brie quality score by 1" do
       items = [Item.new("Aged Brie", 10, 20)]
       GildedRose.new(items).update_quality()
@@ -29,6 +30,13 @@ describe GildedRose do
       expect(items[0].sell_in).to eq 9
     end
 
+    # Quality increases by 3 when there are 5 days or less auntil the concert.
+    it "improves Back stage quality score by 3 when there are 5 days or less auntil the concert" do
+      items = [Item.new("Backstage passes to a TAFKAL80ETC concert", 5, 20)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 23
+    end
+
   end
 end
 
@@ -38,7 +46,7 @@ end
   # All items have a Quality value which denotes how valuable the item is
   # At the end of each day our system lowers both values for every item
   # Sulfuras" never has to be sold or decreases in Quality
-  # "Aged Brie" increases in quality the older it gets
+
   # "Conjured" items degrade in Quality twice as fast as normal items
   # When item sell by date has passed, Quality degrades twice as fast
   # "Backstage passes", like aged brie, increases in Quality as its SellIn value approaches;
