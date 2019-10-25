@@ -4,27 +4,23 @@ require './texttest_fixture.rb'
 describe GildedRose do
 
   describe "#update_quality" do
+
     it "does not change the name" do
       items = [Item.new("fixme", 0, 0)]
       GildedRose.new(items).update_quality()
       expect(items[0].name).to eq "fixme"
     end
-  end
 
-  describe "Item" do
-
-    # Item quality is never more than 50
-    it "quality is never over 50" do
-      expect(items = [Item.new("fixme", 0, 51)]).to raise_error("Please enter a quality within the range of 0 - 50")
-    end
-
-    # Item quality is never negative
-    it "quality is never negative" do
-      expect(items = [Item.new("fixme", 0, -1)]).to raise_error("Please enter a quality within the range of 0 - 50")
+    it "improves Aged Brie quality score by 1" do
+      items = [Item.new("Aged Brie", 10, 20)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 21
     end
   end
 end
 
+  # Item quality is never more than 50
+  # Item quality is never negative
   # All items have a SellIn value which denotes the number of days we have to sell the item
   # All items have a Quality value which denotes how valuable the item is
   # At the end of each day our system lowers both values for every item
