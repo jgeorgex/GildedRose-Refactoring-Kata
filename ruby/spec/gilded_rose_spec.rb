@@ -58,17 +58,23 @@ describe GildedRose do
       expect(items[0].quality).to eq 0
     end
 
-    # "Item quality is never more than 50"
+    # Item quality is never more than 50
     it "Item quality is never more than 50" do
       items = [Item.new("Aged Brie", 10, 50)]
       GildedRose.new(items).update_quality()
       expect(items[0].quality).to eq 50
     end
 
+    # Item quality is never negative
+    it "quality does not drop below zero" do
+      items = [Item.new("Elixir of the Mongoose", 10, 0)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 0
+    end
   end
 end
 
-  # Item quality is never negative
+
   # All items have a SellIn value which denotes the number of days we have to sell the item
   # All items have a Quality value which denotes how valuable the item is
   # At the end of each day our system lowers both values for every item
