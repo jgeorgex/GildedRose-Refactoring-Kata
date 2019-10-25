@@ -51,18 +51,27 @@ describe GildedRose do
       expect(items[0].quality).to eq 21
     end
 
+    # Quality drops to 0 after the concert
+    it "Back stage quality score drops to 0 after the concert" do
+      items = [Item.new("Backstage passes to a TAFKAL80ETC concert", 0, 20)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 0
+    end
+
+    # "Item quality is never more than 50"
+    it "Item quality is never more than 50" do
+      items = [Item.new("Aged Brie", 10, 50)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 50
+    end
+
   end
 end
 
-  # Item quality is never more than 50
   # Item quality is never negative
   # All items have a SellIn value which denotes the number of days we have to sell the item
   # All items have a Quality value which denotes how valuable the item is
   # At the end of each day our system lowers both values for every item
   # Sulfuras" never has to be sold or decreases in Quality
-
   # "Conjured" items degrade in Quality twice as fast as normal items
   # When item sell by date has passed, Quality degrades twice as fast
-  # "Backstage passes", like aged brie, increases in Quality as its SellIn value approaches;
-  # 	Quality increases by 2 when there are 10 days or less and by 3 when there are 5 days or less but
-  # 	Quality drops to 0 after the concert
