@@ -30,11 +30,18 @@ describe GildedRose do
       expect(items[0].sell_in).to eq 9
     end
 
-    # Quality increases by 3 when there are 5 days or less auntil the concert.
-    it "improves Back stage quality score by 3 when there are 5 days or less auntil the concert" do
+    # Quality increases by 3 when there are 5 days or less until the concert.
+    it "improves Back stage quality score by 3 when there are 5 days or less until the concert" do
       items = [Item.new("Backstage passes to a TAFKAL80ETC concert", 5, 20)]
       GildedRose.new(items).update_quality()
       expect(items[0].quality).to eq 23
+    end
+
+    # Quality increases by 2 when there are 10 days or less until the concert.
+    it "improves Back stage quality score by 2 when there are 10 days or less until the concert" do
+      items = [Item.new("Backstage passes to a TAFKAL80ETC concert", 10, 20)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 22
     end
 
   end
